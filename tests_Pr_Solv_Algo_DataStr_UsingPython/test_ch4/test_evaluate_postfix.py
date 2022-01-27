@@ -6,3 +6,4 @@ def test_evaluate_postfix():
     assert evaluate_postfix("17 10 + 3 * 9 /") == 9
     assert evaluate_postfix("4 5 6 * +") == 34
     assert evaluate_postfix("10") == 10
+    assert evaluate_postfix("15.1") == 15.1

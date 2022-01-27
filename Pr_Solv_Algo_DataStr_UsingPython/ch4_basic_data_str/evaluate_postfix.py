@@ -1,5 +1,4 @@
 from Pr_Solv_Algo_DataStr_UsingPython.ch4_basic_data_str.stack import Stack
-from typing import Union
 from operator import add, sub, truediv, mul
 
 OPERATORS = {
@@ -17,11 +16,12 @@ def evaluate_postfix(x: str) -> float:
     Expression should be composed of positive int or float numbers and operators '*', '/', '+', '-'
     :return: result of postfix expression evaluation
     """
-    if len(x) == 1:
-        return float(x)
-
     s = Stack()
     x = x.split(' ')
+
+    if len(x) == 1:
+        return float(x[0])
+
     for i in x:
         if i not in ('*', '/', '+', '-'):
             s.push(float(i))
