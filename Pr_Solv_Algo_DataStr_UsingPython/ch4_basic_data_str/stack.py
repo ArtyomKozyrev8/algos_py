@@ -5,6 +5,9 @@ class Stack:
     def __init__(self) -> None:
         self._items = []
 
+    def __repr__(self) -> str:
+        return f"Stack({self._items})"
+
     def peek(self) -> Any:
         return self._items[-1]
 

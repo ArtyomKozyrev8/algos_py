@@ -11,6 +11,7 @@ def test_stack():
     x.push(1)
     x.push(2)
     x.push(3)
+    assert repr(x) == f'Stack([0, 1, 2, 3])'
     assert x.size() == 4
     assert x.pop() == 3
     assert x.pop() == 2
