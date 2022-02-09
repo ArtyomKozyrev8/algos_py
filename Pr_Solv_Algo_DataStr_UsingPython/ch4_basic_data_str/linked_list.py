@@ -30,7 +30,10 @@ class List:
             items.append(cur.val)
             cur = cur.next
 
-        return f"List({', '.join(map(str, items))})"
+        if items:
+            items.append(None)
+
+        return f"List({'->'.join(map(str, items))})"
 
     def add(self, item: Node) -> None:
         temp = self._head

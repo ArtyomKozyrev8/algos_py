@@ -19,12 +19,12 @@ def test_list():
     x.add(Node(1))
     x.add(Node(2))
     x.add(Node(3))
-    assert str(x) == "List(3, 2, 1)"
+    assert str(x) == "List(3->2->1->None)"
     assert x.is_empty() is False
     assert x.size() == 3
     x.append(Node(4))
     x.append(Node(5))
-    assert str(x) == "List(3, 2, 1, 4, 5)"
+    assert str(x) == "List(3->2->1->4->5->None)"
     assert x.is_empty() is False
     assert x.size() == 5
     assert x.search(Node(4)) is True
@@ -37,17 +37,17 @@ def test_list():
     with pytest.raises(Exception):
         assert x.index(Node(7))
     x.insert(0, Node(6))
-    assert str(x) == "List(6, 3, 2, 1, 4, 5)"
+    assert str(x) == "List(6->3->2->1->4->5->None)"
     assert x.size() == 6
     x.insert(3, Node(7))
-    assert str(x) == "List(6, 3, 2, 7, 1, 4, 5)"
+    assert str(x) == "List(6->3->2->7->1->4->5->None)"
     assert x.size() == 7
     x.insert(10, Node(8))
-    assert str(x) == "List(6, 3, 2, 7, 1, 4, 5, 8)"
+    assert str(x) == "List(6->3->2->7->1->4->5->8->None)"
     assert x.size() == 8
     y = List()
     y.insert(10, Node(10))
-    assert str(y) == "List(10)"
+    assert str(y) == "List(10->None)"
     assert y.size() == 1
     y.pop()
     assert str(y) == "List()"
@@ -58,28 +58,28 @@ def test_list():
     with pytest.raises(Exception):
         assert y.remove(Node(9))
     x.pop()
-    assert str(x) == "List(6, 3, 2, 7, 1, 4, 5)"
+    assert str(x) == "List(6->3->2->7->1->4->5->None)"
     assert x.size() == 7
     x.pop(0)
-    assert str(x) == "List(3, 2, 7, 1, 4, 5)"
+    assert str(x) == "List(3->2->7->1->4->5->None)"
     assert x.size() == 6
     with pytest.raises(Exception):
         x.pop(10)
     x.pop(3)
-    assert str(x) == "List(3, 2, 7, 4, 5)"
+    assert str(x) == "List(3->2->7->4->5->None)"
     assert x.size() == 5
     x.pop(4)
-    assert str(x) == "List(3, 2, 7, 4)"
+    assert str(x) == "List(3->2->7->4->None)"
     assert x.size() == 4
     with pytest.raises(Exception):
         x.remove(Node(10))
     x.remove(Node(7))
-    assert str(x) == "List(3, 2, 4)"
+    assert str(x) == "List(3->2->4->None)"
     assert x.size() == 3
     x.remove(Node(3))
-    assert str(x) == "List(2, 4)"
+    assert str(x) == "List(2->4->None)"
     assert x.size() == 2
     x.remove(Node(4))
-    assert str(x) == "List(2)"
+    assert str(x) == "List(2->None)"
     assert x.size() == 1
 
