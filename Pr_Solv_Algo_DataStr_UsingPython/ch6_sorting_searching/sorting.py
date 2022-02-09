@@ -25,3 +25,16 @@ def selection_sort(x: List[Any]) -> List[Any]:
         x[max_i], x[len(x) - i - 1] = x[len(x) - i - 1], x[max_i]
 
     return x
+
+
+def insertion_sort(x: List[Any]) -> List[Any]:
+    for i in range(1, len(x)):
+        checking = x[i]
+        for j in range(0, i):
+            if checking < x[j]:
+                temp = x[j]
+                x[j] = checking
+                checking = temp
+        x[i] = checking
+
+    return x
