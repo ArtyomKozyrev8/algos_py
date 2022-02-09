@@ -55,12 +55,14 @@ class List:
         self._head = prev
         return self
 
-    @staticmethod
-    def repr_rec(node: Node) -> str:
-        if node is None:
-            return "None"
+    def repr_rec(self) -> str:
+        def repr_rec_inner(node: Node) -> str:
+            if node is None:
+                return "None"
 
-        return str(node.val) + "->" + List.repr_rec(node.next)
+            return str(node.val) + "->" + repr_rec_inner(node.next)
+
+        return repr_rec_inner(self._head)
 
     def add(self, item: Node) -> None:
         temp = self._head

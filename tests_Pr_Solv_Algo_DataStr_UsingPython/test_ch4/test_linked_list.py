@@ -86,11 +86,11 @@ def test_list():
 
 def test_list_repr_rec():
     x = List()
-    assert List.repr_rec(x._head) == "None"
+    assert x.repr_rec() == "None"
     x.add(Node(1))
     x.add(Node(2))
     x.add(Node(3))
-    assert List.repr_rec(x._head) == "3->2->1->None"
+    assert x.repr_rec() == "3->2->1->None"
 
 
 def test_rev_linked_list():
