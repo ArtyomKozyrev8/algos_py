@@ -35,6 +35,26 @@ class List:
 
         return f"List({'->'.join(map(str, items))})"
 
+    def reverse(self) -> "List":
+        cur = self._head
+        if cur is None:
+            return self
+
+        prev = None
+
+        while True:
+            _next = cur.next
+            cur.next = prev
+            prev = cur
+
+            if _next is None:
+                break
+
+            cur = _next
+
+        self._head = prev
+        return self
+
     @staticmethod
     def repr_rec(node: Node) -> str:
         if node is None:

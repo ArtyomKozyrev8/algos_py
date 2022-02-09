@@ -91,3 +91,17 @@ def test_list_repr_rec():
     x.add(Node(2))
     x.add(Node(3))
     assert List.repr_rec(x._head) == "3->2->1->None"
+
+
+def test_rev_linked_list():
+    x = List()
+    assert str(x.reverse()) == "List()"
+    x.add(Node(1))
+    x.add(Node(2))
+    x.add(Node(3))
+    assert str(x.reverse()) == "List(1->2->3->None)"
+    assert str(x.reverse()) == "List(3->2->1->None)"
+    y = List()
+    y.add(Node(1))
+    assert str(y.reverse()) == "List(1->None)"
+    assert str(y.reverse()) == "List(1->None)"
