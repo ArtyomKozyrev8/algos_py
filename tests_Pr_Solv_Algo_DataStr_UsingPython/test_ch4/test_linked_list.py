@@ -83,3 +83,11 @@ def test_list():
     assert str(x) == "List(2->None)"
     assert x.size() == 1
 
+
+def test_list_repr_rec():
+    x = List()
+    assert List.repr_rec(x._head) == "None"
+    x.add(Node(1))
+    x.add(Node(2))
+    x.add(Node(3))
+    assert List.repr_rec(x._head) == "3->2->1->None"

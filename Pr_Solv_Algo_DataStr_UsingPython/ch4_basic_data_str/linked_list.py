@@ -35,6 +35,13 @@ class List:
 
         return f"List({'->'.join(map(str, items))})"
 
+    @staticmethod
+    def repr_rec(node: Node) -> str:
+        if node is None:
+            return "None"
+
+        return str(node.val) + "->" + List.repr_rec(node.next)
+
     def add(self, item: Node) -> None:
         temp = self._head
         item.next = temp
@@ -57,7 +64,6 @@ class List:
                 return
             prev = cur
             cur = cur.next
-
 
         raise ValueError(f"{item} is not in the List")
 
