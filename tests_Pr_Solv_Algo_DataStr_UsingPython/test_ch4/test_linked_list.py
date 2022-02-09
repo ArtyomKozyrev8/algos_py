@@ -105,3 +105,20 @@ def test_rev_linked_list():
     y.add(Node(1))
     assert str(y.reverse()) == "List(1->None)"
     assert str(y.reverse()) == "List(1->None)"
+
+
+def test_reverse_recursive():
+    x = List()
+    assert str(x.reverse_recursive()) == "List()"
+    x.add(Node(1))
+    x.add(Node(2))
+    x.add(Node(3))
+    assert str(x.reverse_recursive()) == "List(1->2->3->None)"
+    assert str(x.reverse_recursive()) == "List(3->2->1->None)"
+    y = List()
+    y.add(Node(1))
+    assert str(y.reverse_recursive()) == "List(1->None)"
+    assert str(y.reverse_recursive()) == "List(1->None)"
+    y.add(Node(2))
+    assert str(y.reverse_recursive()) == "List(1->2->None)"
+    assert str(y.reverse_recursive()) == "List(2->1->None)"

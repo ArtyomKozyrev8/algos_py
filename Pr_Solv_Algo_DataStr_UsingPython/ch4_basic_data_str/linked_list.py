@@ -55,6 +55,26 @@ class List:
         self._head = prev
         return self
 
+    def reverse_recursive(self) -> "List":
+        def reverse_inner(node: Node, prev: Node = None) -> Node:
+            if node is None:
+                return None
+
+            if node.next is None:
+                node.next = prev
+                return node
+
+            cur = node
+            _next = cur.next
+            cur.next = prev
+            prev = cur
+
+            return reverse_inner(_next, prev)
+
+        r = reverse_inner(self._head, prev=None)
+        self._head = r
+        return self
+
     def repr_rec(self) -> str:
         def repr_rec_inner(node: Node) -> str:
             if node is None:
